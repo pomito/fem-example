@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+   <style>
+   .red-square{
+    width: 100px;
+    height: 100px;
+    background-color: crimson;
+   }
+
+   .color-box{
+      width: 200px;
+    height: 200px;
+    background-color: white;
+    border: 2px solid black;
+   }</style>
+</head>
+<body>
+  <!-- <div class="red-square"></div>
+
+   <ul>
+      <li class="js-target">Unchanged</li>
+      <li class="js-target">Unchanged</li>
+      <li>Won't Change</li>
+      <li class="js-target">Unchanged</li>
+      <li>Won't Change</li>
+      <li class="js-target">Unchanged</li>
+   </ul>
+
+   <button class='event-button'>Click me!</button>
+   <select name="" id=""><option value="">1</option>
+   <option value="">2</option>
+   <option value="">3</option></select>
+
+
+   <input type="text" placeholder="type into me!" class="input-to-copy">
+   <p class="p-to-copy-to">Nothing has happened yet.</p>
+!-->
+   <p>Podaj ulubiony kolor E36:</p>
+   <div class="color-box"></div>
+   <input type="text" name="" id="" class="color-input">
+
+</body>
+<script>
+
+const inputColor = document.querySelector('.color-input');
+const change = document.querySelector('.color-box');
+
+inputColor.addEventListener("change", function(){
+   if(inputColor.value === "cwelnok"){
+      change.style.backgroundColor = "yellow";
+      change.innerHTML = `<img src="https://static.xx.fbcdn.net/images/emoji.php/v9/ta8/1/32/1f974.png"><img src="https://static.xx.fbcdn.net/images/emoji.php/v9/ta8/1/32/1f974.png"><img src="https://static.xx.fbcdn.net/images/emoji.php/v9/ta8/1/32/1f974.png">`
+   }
+   else if(inputColor.value === "kabeluj"){
+      change.style.backgroundColor = "black";
+      change.innerHTML = `<p1 style="color:white">cwel cwel cwel></p>`
+   }
+   change.style.backgroundColor = inputColor.value;
+});
+
+const input = document.querySelector('.input-to-copy');
+const paragraph = document.querySelector('.p-to-copy-to');
+
+input.addEventListener('keyup', function(){
+   paragraph.innerText = input.value;
+});
+
+
+const redSquare = document.querySelector('.red-square');
+redSquare.style.backgroundColor = 'limegreen';
+
+const elementsToChange = document.querySelectorAll('.js-target');
+
+for(let i=0;i< elementsToChange.length;i++){
+   const currentElement = elementsToChange[i];
+   currentElement.innerHTML = "<h1>Modified by JavaScript</h1>";
+}
+
+const button = document.querySelector('.event-button');
+button.addEventListener('click',function(){
+   document.location = "https://facebook.com"
+   alert("Hey there!");
+})
+</script>
+</html>
